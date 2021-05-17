@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Admin\NavigationMenu;
+namespace Tests\Feature\Admin\UserPermissions;
 
 use App\Http\Livewire\UserPermissions;
 use App\Models\User;
