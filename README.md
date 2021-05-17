@@ -26,9 +26,17 @@ Docker
 
 5- Run `$ docker-compose exec php php /var/www/html/artisan db:seed` to run all seeds.
 
-6- Run `docker-compose exec php npm run dev` to install all the frontend dependencies.
+6- Run `docker-compose exec php npm install` to install all the frontend dependencies.
 
-7- Access the project at `http://localhost:8080/`
+7- Run `docker-compose exec php npm run dev` to build frontend for dev.
+
+8- Access the project at `http://localhost:8080/`
+
+You can use these users with password `cmspassword`
+
+`admin@cms.com`
+`editor@cms.com`
+`user@cms.com`
 
 ## Tests
 

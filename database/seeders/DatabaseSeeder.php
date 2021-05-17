@@ -20,27 +20,27 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@cms.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('cmspassword'),
             'role' => 'admin',
         ]);
 
         DB::table('users')->insert([
             'name' => 'editor',
             'email' => 'editor@cms.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('cmspassword'),
             'role' => 'editor',
         ]);
 
         DB::table('users')->insert([
             'name' => 'user',
             'email' => 'user@cms.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('cmspassword'),
         ]);
 
         DB::table('users')->insert([
             'name' => Str::random(10),
             'email' => Str::random(10).'@cms.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('cmspassword'),
         ]);
     }
 
@@ -69,6 +69,21 @@ class DatabaseSeeder extends Seeder
             'slug' => 'not-found',
             'content' => '404 - Page not found',
             'is_default_not_found' => true,
+        ]);
+
+        DB::table('user_permissions')->insert([
+            'role' => 'editor',
+            'route_name' => 'dashboard',
+        ]);
+
+        DB::table('user_permissions')->insert([
+            'role' => 'editor',
+            'route_name' => 'menus',
+        ]);
+
+        DB::table('user_permissions')->insert([
+            'role' => 'editor',
+            'route_name' => 'pages',
         ]);
     }
 
