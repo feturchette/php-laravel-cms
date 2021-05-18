@@ -6,6 +6,8 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Http\Livewire\Traits\CanUpdate;
 use App\Http\Livewire\Traits\CanDelete;
+use \Exception;
+use Illuminate\Support\Facades\Log;
 
 abstract class BaseComponent extends Component
 {
@@ -22,8 +24,13 @@ abstract class BaseComponent extends Component
 
     public function read()
     {
-        $this->loadModelClass();
-        return $this->model::paginate(5);
+        try {
+            $this->loadModelClass();
+            return $this->model::paginate(5);
+        } catch(Exception $e) {
+            Log::error('Error trying to read ' .$this->modelClass. ' - ' . $e->getMessage());
+            throw $e;
+        }
     }
 
     public function createShowModal()
@@ -52,7 +59,7 @@ abstract class BaseComponent extends Component
     {
       $this->model = "\App\\Models\\".ucwords($this->modelClass);
       if(!class_exists($this->model)){
-          abort(500, 'Model does not exist');
+          abort(500, 'Model '.$this->modelClass.' does not exist');
       }
     }
 }

@@ -38,11 +38,6 @@ class Pages extends BaseComponent
 
         $this->modalFormVisible = false;
         $this->reset();
-
-        $this->dispatchBrowserEvent('event-notification', [
-            'eventName' => 'New Page',
-            'eventMessage' => 'Another page has been created!',
-        ]);
     }
 
     public function update()
@@ -53,11 +48,6 @@ class Pages extends BaseComponent
 
         Page::find($this->modelId)->update($this->modelData());
         $this->modalFormVisible = false;
-
-        $this->dispatchBrowserEvent('event-notification', [
-            'eventName' => 'Updated Page',
-            'eventMessage' => 'There is a page (' . $this->modelId . ') that has been updated!',
-        ]);
     }
 
     public function modelData()
@@ -76,11 +66,6 @@ class Pages extends BaseComponent
         Page::destroy($this->modelId);
         $this->modalConfirmDeleteVisible = false;
         $this->resetPage();
-
-        $this->dispatchBrowserEvent('event-notification', [
-            'eventName' => 'Deleted Page',
-            'eventMessage' => 'The page (' . $this->modelId . ') has been deleted!',
-        ]);
     }
 
     public function loadModel()
