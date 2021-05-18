@@ -30,6 +30,9 @@
                 </form>
                 
                 @else
+                    <a href="{{ url('/register') }}">
+                        <li class="cursor-pointer px-4 py-2 hover:bg-gray-800">{{ __('Register') }}</li>
+                    </a>
                     <a href="{{ url('/login') }}">
                         <li class="cursor-pointer px-4 py-2 hover:bg-gray-800">{{ __('Log in') }}</li>
                     </a>
@@ -73,6 +76,9 @@
                             </a>
                         </form>
                     @else
+                        <a href="{{ url('/register') }}">
+                            <li class="cursor-pointer px-4 py-2 hover:bg-gray-800">{{ __('Register') }}</li>
+                        </a>
                         <a href="{{ url('/login') }}">
                             <li class="cursor-pointer px-4 py-2 hover:bg-gray-800">{{ __('Log in') }}</li>
                         </a>
